@@ -372,7 +372,7 @@ This method accepts the following `$resource` types:
 $stream = GuzzleHttp\Psr7\stream_for('foo');
 $stream = GuzzleHttp\Psr7\stream_for(fopen('/path/to/file', 'r'));
 
-$generator function ($bytes) {
+$generator = function ($bytes) {
     for ($i = 0; $i < $bytes; $i++) {
         yield ' ';
     }
@@ -519,6 +519,15 @@ Determines the mimetype of a file by looking at its extension.
 Maps a file extensions to a mimetype.
 
 
+## `function get_message_body_summary`
+
+`function get_message_body_summary(MessageInterface $message, $truncateAt = 120)`
+
+Get a short summary of the message body.
+
+Will return `null` if the response is not printable.
+
+
 # Additional URI Methods
 
 Aside from the standard `Psr\Http\Message\UriInterface` implementation in form of the `GuzzleHttp\Psr7\Uri` class,
@@ -606,6 +615,12 @@ Creates a new URI with a specific query string value. Any existing query string 
 provided key are removed and replaced with the given key value pair. A value of null will set the query string
 key without a value, e.g. "key" instead of "key=value".
 
+### `GuzzleHttp\Psr7\Uri::withQueryValues`
+
+`public static function withQueryValues(UriInterface $uri, array $keyValueArray): UriInterface`
+
+Creates a new URI with multiple query string values. It has the same behavior as `withQueryValue()` but for an
+associative array of key => value.
 
 ### `GuzzleHttp\Psr7\Uri::withoutQueryValue`
 

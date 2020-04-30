@@ -1,7 +1,17 @@
-dependent-dropdown
-==================
+<h1 align="center">
+    <a href="http://plugins.krajee.com" title="Krajee Plugins" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/krajee-logo-b.png" alt="Krajee Logo"/>
+    </a>
+    <br>
+    dependent-dropdown
+    <hr>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTP3NZQ6G2AYU"
+       title="Donate via Paypal" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/donate.png" alt="Donate"/>
+    </a>
+</h1>
 
-[![BOWER version](https://badge-me.herokuapp.com/api/bower/kartik-v/dependent-dropdown.png)](http://badges.enytc.com/for/bower/kartik-v/dependent-dropdown)
+[![Financial Contributors on Open Collective](https://opencollective.com/dependent-dropdown/all/badge.svg?label=financial+contributors)](https://opencollective.com/dependent-dropdown) [![BOWER version](https://badge-me.herokuapp.com/api/bower/kartik-v/dependent-dropdown.png)](http://badges.enytc.com/for/bower/kartik-v/dependent-dropdown)
 [![Latest Stable Version](https://poser.pugx.org/kartik-v/dependent-dropdown/v/stable)](https://packagist.org/packages/kartik-v/dependent-dropdown)
 [![License](https://poser.pugx.org/kartik-v/dependent-dropdown/license)](https://packagist.org/packages/kartik-v/dependent-dropdown)
 [![Packagist Downloads](https://poser.pugx.org/kartik-v/dependent-dropdown/downloads)](https://packagist.org/packages/kartik-v/dependent-dropdown)
@@ -9,7 +19,7 @@ dependent-dropdown
 
 A multi level dependent dropdown JQuery plugin that allows nested dependencies. The plugin allows you to convert normal select inputs, whose options are derived based on value selected in another input/or a group of inputs. It works both with normal select options and select with optgroups as well.
 
-> NOTE: The latest version of the plugin v1.4.8 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/dependent-dropdown/blob/master/CHANGE.md) for details.
+> NOTE: Refer the [CHANGE LOG](https://github.com/kartik-v/dependent-dropdown/blob/master/CHANGE.md) for details on updates to various releases.
 
 ## Features
 
@@ -70,6 +80,11 @@ View the [plugin documentation](http://plugins.krajee.com/dependent-dropdown) an
 You can use the `bower` package manager to install. Run:
 
     bower install dependent-dropdown
+
+### Using NPM
+To install using the `npm` package manager run:
+
+    npm install dependent-dropdown
 
 ### Using Composer
 You can use the `composer` package manager to install. Either run:
@@ -142,6 +157,36 @@ $("#child-2").depdrop({
 
 ```
 
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/kartik-v/dependent-dropdown/graphs/contributors"><img src="https://opencollective.com/dependent-dropdown/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/dependent-dropdown/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/dependent-dropdown"><img src="https://opencollective.com/dependent-dropdown/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/dependent-dropdown/contribute)]
+
+<a href="https://opencollective.com/dependent-dropdown/organization/0/website"><img src="https://opencollective.com/dependent-dropdown/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/1/website"><img src="https://opencollective.com/dependent-dropdown/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/2/website"><img src="https://opencollective.com/dependent-dropdown/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/3/website"><img src="https://opencollective.com/dependent-dropdown/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/4/website"><img src="https://opencollective.com/dependent-dropdown/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/5/website"><img src="https://opencollective.com/dependent-dropdown/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/6/website"><img src="https://opencollective.com/dependent-dropdown/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/7/website"><img src="https://opencollective.com/dependent-dropdown/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/8/website"><img src="https://opencollective.com/dependent-dropdown/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/dependent-dropdown/organization/9/website"><img src="https://opencollective.com/dependent-dropdown/organization/9/avatar.svg"></a>
+
 ## License
 
-**dependent-dropdown** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**dependent-dropdown** is released under the BSD-3-Clause License. See the bundled `LICENSE.md` for details.

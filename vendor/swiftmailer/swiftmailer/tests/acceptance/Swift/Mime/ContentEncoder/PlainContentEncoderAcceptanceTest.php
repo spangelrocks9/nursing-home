@@ -5,7 +5,7 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderAcceptanceTest extends \PHPUn
     private $samplesDir;
     private $encoder;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->samplesDir = realpath(__DIR__.'/../../../../_samples/charsets');
         $this->encoder = new Swift_Mime_ContentEncoder_PlainContentEncoder('8bit');
@@ -15,7 +15,7 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderAcceptanceTest extends \PHPUn
     {
         $sampleFp = opendir($this->samplesDir);
         while (false !== $encodingDir = readdir($sampleFp)) {
-            if (substr($encodingDir, 0, 1) == '.') {
+            if ('.' == substr($encodingDir, 0, 1)) {
                 continue;
             }
 
@@ -24,7 +24,7 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderAcceptanceTest extends \PHPUn
             if (is_dir($sampleDir)) {
                 $fileFp = opendir($sampleDir);
                 while (false !== $sampleFile = readdir($fileFp)) {
-                    if (substr($sampleFile, 0, 1) == '.') {
+                    if ('.' == substr($sampleFile, 0, 1)) {
                         continue;
                     }
 
@@ -47,7 +47,7 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderAcceptanceTest extends \PHPUn
     {
         $sampleFp = opendir($this->samplesDir);
         while (false !== $encodingDir = readdir($sampleFp)) {
-            if (substr($encodingDir, 0, 1) == '.') {
+            if ('.' == substr($encodingDir, 0, 1)) {
                 continue;
             }
 
@@ -56,7 +56,7 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderAcceptanceTest extends \PHPUn
             if (is_dir($sampleDir)) {
                 $fileFp = opendir($sampleDir);
                 while (false !== $sampleFile = readdir($fileFp)) {
-                    if (substr($sampleFile, 0, 1) == '.') {
+                    if ('.' == substr($sampleFile, 0, 1)) {
                         continue;
                     }
 

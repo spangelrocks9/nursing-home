@@ -4,7 +4,7 @@ class Swift_Events_SimpleEventDispatcherTest extends \PHPUnit\Framework\TestCase
 {
     private $dispatcher;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->dispatcher = new Swift_Events_SimpleEventDispatcher();
     }
@@ -22,11 +22,11 @@ class Swift_Events_SimpleEventDispatcherTest extends \PHPUnit\Framework\TestCase
     public function testCommandEventCanBeCreated()
     {
         $buf = $this->getMockBuilder('Swift_Transport')->getMock();
-        $evt = $this->dispatcher->createCommandEvent($buf, "FOO\r\n", array(250));
+        $evt = $this->dispatcher->createCommandEvent($buf, "FOO\r\n", [250]);
         $this->assertInstanceOf('Swift_Events_CommandEvent', $evt);
         $this->assertSame($buf, $evt->getSource());
         $this->assertEquals("FOO\r\n", $evt->getCommand());
-        $this->assertEquals(array(250), $evt->getSuccessCodes());
+        $this->assertEquals([250], $evt->getSuccessCodes());
     }
 
     public function testResponseEventCanBeCreated()
@@ -117,9 +117,9 @@ class Swift_Events_SimpleEventDispatcherTest extends \PHPUnit\Framework\TestCase
         $listenerA->expects($this->once())
                   ->method('sendPerformed')
                   ->with($evt)
-                  ->will($this->returnCallback(function ($object) {
+                  ->willReturnCallback(function ($object) {
                       $object->cancelBubble(true);
-                  }));
+                  });
         $listenerB->expects($this->never())
                   ->method('sendPerformed');
 

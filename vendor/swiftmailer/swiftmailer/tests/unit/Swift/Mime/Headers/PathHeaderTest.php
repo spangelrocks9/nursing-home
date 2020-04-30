@@ -17,11 +17,10 @@ class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('chris@swiftmailer.org', $header->getAddress());
     }
 
-    /**
-     * @expectedException \Exception
-     */
     public function testAddressMustComplyWithRfc2822()
     {
+        $this->expectException(\Exception::class);
+
         $header = $this->getHeader('Return-Path');
         $header->setAddress('chr is@swiftmailer.org');
     }
@@ -39,6 +38,22 @@ class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
         $header = $this->getHeader('Return-Path');
         $header->setAddress('chris@swiftmailer.org');
         $this->assertEquals('<chris@swiftmailer.org>', $header->getFieldBody());
+    }
+
+    public function testAddressIsIdnEncoded()
+    {
+        $header = $this->getHeader('Return-Path');
+        $header->setAddress('chris@swïftmailer.org');
+        $this->assertEquals('<chris@xn--swftmailer-78a.org>', $header->getFieldBody());
+    }
+
+    public function testAddressMustBeEncodable()
+    {
+        $this->expectException(\Swift_AddressEncoderException::class);
+
+        $header = $this->getHeader('Return-Path');
+        $header->setAddress('chrïs@swiftmailer.org');
+        $header->getFieldBody();
     }
 
     public function testValueIsEmptyAngleBracketsIfEmptyAddressSet()
@@ -73,6 +88,6 @@ class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
 
     private function getHeader($name)
     {
-        return new Swift_Mime_Headers_PathHeader($name, new EmailValidator());
+        return new Swift_Mime_Headers_PathHeader($name, new EmailValidator(), new Swift_AddressEncoder_IdnAddressEncoder());
     }
 }

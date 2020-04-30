@@ -9,7 +9,7 @@ class Swift_Mime_MimePartAcceptanceTest extends \PHPUnit\Framework\TestCase
     private $headers;
     private $emailValidator;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->cache = new Swift_KeyCache_ArrayKeyCache(
             new Swift_KeyCache_SimpleKeyCacheInputStream()
@@ -18,8 +18,8 @@ class Swift_Mime_MimePartAcceptanceTest extends \PHPUnit\Framework\TestCase
         $this->contentEncoder = new Swift_Mime_ContentEncoder_QpContentEncoder(
             new Swift_CharacterStream_ArrayCharacterStream($factory, 'utf-8'),
             new Swift_StreamFilters_ByteArrayReplacementFilter(
-                array(array(0x0D, 0x0A), array(0x0D), array(0x0A)),
-                array(array(0x0A), array(0x0A), array(0x0D, 0x0A))
+                [[0x0D, 0x0A], [0x0D], [0x0A]],
+                [[0x0A], [0x0A], [0x0D, 0x0A]]
                 )
             );
 

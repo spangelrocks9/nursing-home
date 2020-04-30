@@ -1,5 +1,15 @@
-yii2-widget-rating
-==================
+<h1 align="center">
+    <a href="http://demos.krajee.com" title="Krajee Demos" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/krajee-logo-b.png" alt="Krajee Logo"/>
+    </a>
+    <br>
+    yii2-widget-rating
+    <hr>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTP3NZQ6G2AYU"
+       title="Donate via Paypal" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/donate.png" alt="Donate"/>
+    </a>
+</h1>
 
 [![Stable Version](https://poser.pugx.org/kartik-v/yii2-widget-rating/v/stable)](https://packagist.org/packages/kartik-v/yii2-widget-rating)
 [![Unstable Version](https://poser.pugx.org/kartik-v/yii2-widget-rating/v/unstable)](https://packagist.org/packages/kartik-v/yii2-widget-rating)
@@ -32,7 +42,7 @@ to the ```require``` section of your `composer.json` file.
 
 ## Latest Release
 
-> NOTE: The latest version of the module is v1.0.3. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-widget-rating/blob/master/CHANGE.md) for details.
+> NOTE: Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-widget-rating/blob/master/CHANGE.md) for details on changes to various releases.
 
 ## Demo
 
@@ -58,4 +68,4 @@ echo StarRating::widget([
 
 ## License
 
-**yii2-widget-rating** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**yii2-widget-rating** is released under the BSD-3-Clause License. See the bundled `LICENSE.md` for details.

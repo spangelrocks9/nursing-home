@@ -45,8 +45,8 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
     public function testMultipleIdsCanBeSet()
     {
         $header = $this->getHeader('References');
-        $header->setIds(array('a@b', 'x@y'));
-        $this->assertEquals(array('a@b', 'x@y'), $header->getIds());
+        $header->setIds(['a@b', 'x@y']);
+        $this->assertEquals(['a@b', 'x@y'], $header->getIds());
     }
 
     public function testSettingMultipleIdsProducesAListValue()
@@ -63,7 +63,7 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
      */
 
         $header = $this->getHeader('References');
-        $header->setIds(array('a@b', 'x@y'));
+        $header->setIds(['a@b', 'x@y']);
         $this->assertEquals('<a@b> <x@y>', $header->getFieldBody());
     }
 
@@ -99,12 +99,11 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
         $this->assertEquals('<a.b+&%$.c@d>', $header->getFieldBody());
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedMessageException "a b c" is not valid id-left
-     */
     public function testInvalidIdLeftThrowsException()
     {
+        $this->expectException(\Swift_RfcComplianceException::class);
+        $this->expectExceptionMessage('Invalid ID given <a b c@d>');
+
         $header = $this->getHeader('References');
         $header->setId('a b c@d');
     }
@@ -133,22 +132,28 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
         $this->assertEquals('<a@[1.2.3.4]>', $header->getFieldBody());
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedMessageException "b c d" is not valid id-right
-     */
+    public function testIdRigthIsIdnEncoded()
+    {
+        $header = $this->getHeader('References');
+        $header->setId('a@ä');
+        $this->assertEquals('a@ä', $header->getId());
+        $this->assertEquals('<a@xn--4ca>', $header->getFieldBody());
+    }
+
     public function testInvalidIdRightThrowsException()
     {
+        $this->expectException(\Swift_RfcComplianceException::class);
+        $this->expectExceptionMessage('Invalid ID given <a@b c d>');
+
         $header = $this->getHeader('References');
         $header->setId('a@b c d');
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedMessageException "abc" is does not contain @
-     */
     public function testMissingAtSignThrowsException()
     {
+        $this->expectException(\Swift_RfcComplianceException::class);
+        $this->expectExceptionMessage('Invalid ID given <abc>');
+
         /* -- RFC 2822, 3.6.4.
      msg-id          =       [CFWS] "<" id-left "@" id-right ">" [CFWS]
      */
@@ -160,25 +165,25 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
     {
         $header = $this->getHeader('Message-ID');
         $header->setFieldBodyModel('a@b');
-        $this->assertEquals(array('a@b'), $header->getIds());
+        $this->assertEquals(['a@b'], $header->getIds());
     }
 
     public function testGetBodyModel()
     {
         $header = $this->getHeader('Message-ID');
         $header->setId('a@b');
-        $this->assertEquals(array('a@b'), $header->getFieldBodyModel());
+        $this->assertEquals(['a@b'], $header->getFieldBodyModel());
     }
 
     public function testStringValue()
     {
         $header = $this->getHeader('References');
-        $header->setIds(array('a@b', 'x@y'));
+        $header->setIds(['a@b', 'x@y']);
         $this->assertEquals('References: <a@b> <x@y>'."\r\n", $header->toString());
     }
 
     private function getHeader($name)
     {
-        return new Swift_Mime_Headers_IdentificationHeader($name, new EmailValidator());
+        return new Swift_Mime_Headers_IdentificationHeader($name, new EmailValidator(), new Swift_AddressEncoder_IdnAddressEncoder());
     }
 }

@@ -1,9 +1,26 @@
-yii2-widgets
-============
+<h1 align="center">
+    <a href="http://demos.krajee.com" title="Krajee Demos" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/krajee-logo-b.png" alt="Krajee Logo"/>
+    </a>
+    <br>
+    yii2-widgets
+    <hr>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTP3NZQ6G2AYU"
+       title="Donate via Paypal" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/donate.png" alt="Donate"/>
+    </a>
+</h1>
+
+[![Stable Version](https://poser.pugx.org/kartik-v/yii2-widgets/v/stable)](https://packagist.org/packages/kartik-v/yii2-widgets)
+[![Unstable Version](https://poser.pugx.org/kartik-v/yii2-widgets/v/unstable)](https://packagist.org/packages/kartik-v/yii2-widgets)
+[![License](https://poser.pugx.org/kartik-v/yii2-widgets/license)](https://packagist.org/packages/kartik-v/yii2-widgets)
+[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-widgets/downloads)](https://packagist.org/packages/kartik-v/yii2-widgets)
+[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-widgets/d/monthly)](https://packagist.org/packages/kartik-v/yii2-widgets)
+[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-widgets/d/daily)](https://packagist.org/packages/kartik-v/yii2-widgets)
 
 This extension enhances or adds functionality to existing Yii Framework 2 Widgets to make available other bundled features available in Bootstrap 3.0, new HTML 5 features and affiliated Bootstrap extras.
 
-> NOTE: This extension has been revamped with release v3.4.0 on 09-Nov-2014. With release v3.4.0, each widget within this extension bundle has been logically regrouped and split into separate sub repositories. 
+> NOTE: This extension has been revamped with release v3.4.1 on 05-Dec-2015. With release v3.4.0, each widget within this extension bundle has been logically regrouped and split into separate sub repositories. 
 This change has been done to allow developers flexibility to install separately or specific widgets only (via composer) if needed. However, for new users installing this bundle 
 should be the easiest way to give you access to all these important widget sub repositories in one shot. This change would not affect backward compatibility for any users already using the previous extension versions.
 
@@ -57,7 +74,7 @@ this extension's requirements and dependencies.
 
 ### Pre-requisites
 
-> Note: Check the [composer.json](https://github.com/kartik-v/yii2-dropdown-x/blob/master/composer.json) for this extension's requirements and dependencies. 
+> Note: Check the [composer.json](https://github.com/kartik-v/yii2-widgets/blob/master/composer.json) for this extension's requirements and dependencies. 
 Read this [web tip /wiki](http://webtips.krajee.com/setting-composer-minimum-stability-application/) on setting the `minimum-stability` settings for your application's composer.json.
 
 ### Install
@@ -76,9 +93,9 @@ or add
 
 to the ```require``` section of your `composer.json` file.
 
-## Latest Release
+## Release Updates
 
->NOTE: The latest version of the module is v3.4.0 released on 09-Nov-2014. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-widgets/blob/master/CHANGE.md) for details.
+> Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-widgets/blob/master/CHANGE.md) for details on changes to various releases.
 
 The widgets currently available in **yii2-widgets** are grouped by the type of usage.
 
@@ -688,6 +705,36 @@ echo AlertBlock::widget([
 ]);
 ```
 
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/kartik-v/yii2-widgets/graphs/contributors"><img src="https://opencollective.com/yii2-widgets/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/yii2-widgets/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/yii2-widgets"><img src="https://opencollective.com/yii2-widgets/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/yii2-widgets/contribute)]
+
+<a href="https://opencollective.com/yii2-widgets/organization/0/website"><img src="https://opencollective.com/yii2-widgets/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/1/website"><img src="https://opencollective.com/yii2-widgets/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/2/website"><img src="https://opencollective.com/yii2-widgets/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/3/website"><img src="https://opencollective.com/yii2-widgets/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/4/website"><img src="https://opencollective.com/yii2-widgets/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/5/website"><img src="https://opencollective.com/yii2-widgets/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/6/website"><img src="https://opencollective.com/yii2-widgets/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/7/website"><img src="https://opencollective.com/yii2-widgets/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/8/website"><img src="https://opencollective.com/yii2-widgets/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/yii2-widgets/organization/9/website"><img src="https://opencollective.com/yii2-widgets/organization/9/avatar.svg"></a>
+
 ## License
 
-**yii2-widgets** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**yii2-widgets** is released under the BSD-3-Clause License. See the bundled `LICENSE.md` for details.

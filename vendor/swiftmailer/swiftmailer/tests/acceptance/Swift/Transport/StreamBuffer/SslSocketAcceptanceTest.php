@@ -4,7 +4,7 @@ require_once __DIR__.'/AbstractStreamBufferAcceptanceTest.php';
 
 class Swift_Transport_StreamBuffer_SslSocketAcceptanceTest extends Swift_Transport_StreamBuffer_AbstractStreamBufferAcceptanceTest
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $streams = stream_get_transports();
         if (!in_array('ssl', $streams)) {
@@ -26,15 +26,15 @@ class Swift_Transport_StreamBuffer_SslSocketAcceptanceTest extends Swift_Transpo
     {
         $parts = explode(':', SWIFT_SSL_HOST);
         $host = $parts[0];
-        $port = isset($parts[1]) ? $parts[1] : 25;
+        $port = $parts[1] ?? 25;
 
-        $this->buffer->initialize(array(
+        $this->buffer->initialize([
             'type' => Swift_Transport_IoBuffer::TYPE_SOCKET,
             'host' => $host,
             'port' => $port,
             'protocol' => 'ssl',
             'blocking' => 1,
             'timeout' => 15,
-        ));
+        ]);
     }
 }

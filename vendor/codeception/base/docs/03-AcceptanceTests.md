@@ -295,7 +295,7 @@ and you want to check that the user can log into the site using this password:
 
 ```php
 <?php
-$I->fillField('email', 'miles@davis.com')
+$I->fillField('email', 'miles@davis.com');
 $I->click('Generate Password');
 $password = $I->grabTextFrom('#password');
 $I->click('Login');
@@ -337,9 +337,9 @@ Actions for URLs:
 ```php
 <?php
 $I->seeCurrentUrlEquals('/login');
-$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+$I->seeCurrentUrlMatches('~^/users/(\d+)~');
 $I->seeInCurrentUrl('user/1');
-$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 ```
 
 ## WebDriver

@@ -7,7 +7,7 @@ class Swift_Smoke_AttachmentSmokeTest extends SwiftMailerSmokeTestCase
 {
     private $_attFile;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp(); // For skip
         $this->attFile = __DIR__.'/../../../_samples/files/textfile.zip';
@@ -18,7 +18,7 @@ class Swift_Smoke_AttachmentSmokeTest extends SwiftMailerSmokeTestCase
         $mailer = $this->getMailer();
         $message = (new Swift_Message())
             ->setSubject('[Swift Mailer] AttachmentSmokeTest')
-            ->setFrom(array(SWIFT_SMOKE_EMAIL_ADDRESS => 'Swift Mailer'))
+            ->setFrom([SWIFT_SMOKE_EMAIL_ADDRESS => 'Swift Mailer'])
             ->setTo(SWIFT_SMOKE_EMAIL_ADDRESS)
             ->setBody('This message should contain an attached ZIP file (named "textfile.zip").'.PHP_EOL.
                 'When unzipped, the archive should produce a text file which reads:'.PHP_EOL.

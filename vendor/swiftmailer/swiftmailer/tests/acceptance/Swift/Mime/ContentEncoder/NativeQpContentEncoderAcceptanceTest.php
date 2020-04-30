@@ -9,7 +9,7 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PH
      */
     protected $encoder;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->samplesDir = realpath(__DIR__.'/../../../../_samples/charsets');
         $this->encoder = new Swift_Mime_ContentEncoder_NativeQpContentEncoder();
@@ -19,7 +19,7 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PH
     {
         $sampleFp = opendir($this->samplesDir);
         while (false !== $encodingDir = readdir($sampleFp)) {
-            if (substr($encodingDir, 0, 1) == '.') {
+            if ('.' == substr($encodingDir, 0, 1)) {
                 continue;
             }
 
@@ -28,7 +28,7 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PH
             if (is_dir($sampleDir)) {
                 $fileFp = opendir($sampleDir);
                 while (false !== $sampleFile = readdir($fileFp)) {
-                    if (substr($sampleFile, 0, 1) == '.') {
+                    if ('.' == substr($sampleFile, 0, 1)) {
                         continue;
                     }
 
@@ -64,11 +64,10 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PH
         $this->assertSame('=C3=A4=C3=B6=C3=BC=C3=9F', $encoder->encodeString('äöüß'));
     }
 
-    /**
-     * @expectedException \RuntimeException
-     */
     public function testCharsetChangeNotImplemented()
     {
+        $this->expectException(\RuntimeException::class);
+
         $this->encoder->charsetChanged('utf-8');
         $this->encoder->charsetChanged('charset');
         $this->encoder->encodeString('foo');

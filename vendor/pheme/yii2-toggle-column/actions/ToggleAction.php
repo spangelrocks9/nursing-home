@@ -26,7 +26,7 @@ class ToggleAction extends Action
     /**
      * @var string model attribute
      */
-    public $attribute = 'status';
+    public $attribute = 'active';
 
     /**
      * @var string scenario model
@@ -97,10 +97,6 @@ class ToggleAction extends Action
 
 
         $attribute = $this->attribute;
-        
-        if($modelClass == 'common\models\Section')
-            $this->primaryKey = 'section_id';
-
         $model = $modelClass::find()->where([$this->primaryKey => $id]);
 
         if (!empty($this->andWhere)) {

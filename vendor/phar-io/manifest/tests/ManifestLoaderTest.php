@@ -1,5 +1,4 @@
-<?php
-
+<?php declare(strict_types = 1);
 namespace PharIo\Manifest;
 
 /**
@@ -42,32 +41,31 @@ namespace PharIo\Manifest;
  * @uses \PharIo\Version\Version
  * @uses \PharIo\Version\VersionConstraint
  */
-class ManifestLoaderTest extends \PHPUnit_Framework_TestCase {
-    public function testCanBeLoadedFromFile() {
+class ManifestLoaderTest extends \PHPUnit\Framework\TestCase {
+    public function testCanBeLoadedFromFile(): void {
         $this->assertInstanceOf(
             Manifest::class,
             ManifestLoader::fromFile(__DIR__ . '/_fixture/library.xml')
         );
     }
 
-    public function testCanBeLoadedFromString() {
+    public function testCanBeLoadedFromString(): void {
         $this->assertInstanceOf(
             Manifest::class,
             ManifestLoader::fromString(
-                file_get_contents(__DIR__ . '/_fixture/library.xml')
+                \file_get_contents(__DIR__ . '/_fixture/library.xml')
             )
         );
     }
 
-    public function testCanBeLoadedFromPhar() {
+    public function testCanBeLoadedFromPhar(): void {
         $this->assertInstanceOf(
             Manifest::class,
             ManifestLoader::fromPhar(__DIR__ . '/_fixture/test.phar')
         );
-
     }
 
-    public function testLoadingNonExistingFileThrowsException() {
+    public function testLoadingNonExistingFileThrowsException(): void {
         $this->expectException(ManifestLoaderException::class);
         ManifestLoader::fromFile('/not/existing');
     }
@@ -75,9 +73,8 @@ class ManifestLoaderTest extends \PHPUnit_Framework_TestCase {
     /**
      * @uses \PharIo\Manifest\ManifestDocumentLoadingException
      */
-    public function testLoadingInvalidXmlThrowsException() {
+    public function testLoadingInvalidXmlThrowsException(): void {
         $this->expectException(ManifestLoaderException::class);
         ManifestLoader::fromString('<?xml version="1.0" ?><broken>');
     }
-
 }

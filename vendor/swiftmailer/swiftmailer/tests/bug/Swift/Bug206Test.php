@@ -6,7 +6,7 @@ class Swift_Bug206Test extends \PHPUnit\Framework\TestCase
 {
     private $factory;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $factory = new Swift_CharacterReaderFactory_SimpleCharacterReaderFactory();
         $headerEncoder = new Swift_Mime_HeaderEncoder_QpHeaderEncoder(
@@ -29,9 +29,9 @@ class Swift_Bug206Test extends \PHPUnit\Framework\TestCase
 
     private function doTestHeaderIsFullyEncoded($email, $name, $expected)
     {
-        $mailboxHeader = $this->factory->createMailboxHeader('To', array(
+        $mailboxHeader = $this->factory->createMailboxHeader('To', [
             $email => $name,
-        ));
+        ]);
 
         $headerBody = substr($mailboxHeader->toString(), 3, strlen($expected));
 

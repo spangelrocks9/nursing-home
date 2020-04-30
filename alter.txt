@@ -1,0 +1,2 @@
+ALTER TABLE `patient_details` CHANGE `sex` `sex` VARCHAR(8) NULL DEFAULT NULL;
+ALTER TABLE `patient_details` CHANGE `image` `image` VARCHAR(255) NULL DEFAULT NULL;
